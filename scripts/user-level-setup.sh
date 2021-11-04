@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+temp=$( realpath "$0"  )
+CURRENT_DIR=$(dirname "$temp")
+
 ## Set zsh as default shell
 echo "Setting up zsh"
 
@@ -17,16 +20,16 @@ fi
 source ~/.zshrc
 
 ## Setup ruby
-./ruby-setup.sh
+${CURRENT_DIR}/ruby-setup.sh
 
 ## Setup nvm
-./nvm-setup.sh
+${CURRENT_DIR}/nvm-setup.sh
 
 cp ./../configs/. ~/
 
 source ~/.zshrc
 
-./docker-setup.sh
+${CURRENT_DIR}/docker-setup.sh
 
 sudo tee -a ~/.profile > /dev/null <<EOT
 xset led on

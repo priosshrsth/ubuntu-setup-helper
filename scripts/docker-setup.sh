@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+temp=$( realpath "$0"  )
+CURRENT_DIR=$(dirname "$temp")
+
 echo "setting up docker"
 
 sudo apt-get install \

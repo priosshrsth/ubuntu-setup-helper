@@ -1,4 +1,8 @@
 #!/bin/bash
+
+temp=$( realpath "$0"  )
+CURRENT_DIR=$(dirname "$temp")
+
 echo "Installing required fonts"
 set  -euo pipefail
 I1FS=$'\n\t'
@@ -13,7 +17,7 @@ fc-cache -f
 rm -rf source-code-pro{,.zip}
 
 ## copy MeslolLGS fonts to system
-sudo cp -a ../fonts /usr/share/fonts/truetype/meslolgs
+sudo cp -a ${CURRENT_DIR}/../fonts /usr/share/fonts/truetype/meslolgs
 
 ## clean cache
 fc-cache -f -v
