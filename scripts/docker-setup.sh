@@ -29,20 +29,6 @@ sudo docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/24 pagevamp
 
 ## Setup docker compose
 
-# temp=$( realpath "$0"  )
-# CURRENT_DIR=$(dirname "$temp")
-
-# if [ -d $HOME/.rbenv ]; then
-#   export PATH="$HOME/.rbenv/shims:$PATH"
-#   eval "$(rbenv init -)"
-# fi
-
-# file_path="${CURRENT_DIR}/../ruby/parse_webpage.rb"
-
-# COMPOSE_VERSION=$(ruby "$file_path" "https://github.com/docker/compose/tree/v2")
-
-# mkdir -p ~/.docker/cli-plugins/
-
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
