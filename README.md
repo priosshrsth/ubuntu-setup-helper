@@ -18,10 +18,12 @@
   ### Add following content
 
   ```text
-  outside ALL=(ALL) :NOPASSWD=ALL
+  outside ALL=(ALL) NOPASSWD: ALL
   ```
 
   ![visudo passwordless](./visudo.png?raw=true "Title")
+  
+  ## Please reboot after the vi sudo command above
 
 ## Reusing existing keys
 
