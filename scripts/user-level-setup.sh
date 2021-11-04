@@ -7,9 +7,9 @@ CURRENT_DIR=$(dirname "$temp")
 echo "Setting up zsh"
 
 ## Install oh-my-zsh
-sh -c --unattended "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 source ~/.zshrc
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -17,7 +17,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.ssh}/" ]]; then
   chmod -R 700 ~/.ssh/
 fi
 
-source ~/.zshrc
+## source ~/.zshrc
 
 ## Setup ruby
 ${CURRENT_DIR}/ruby-setup.sh

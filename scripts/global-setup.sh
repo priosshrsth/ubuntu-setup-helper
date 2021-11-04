@@ -23,7 +23,6 @@ sudo apt install -y zsh vlc gimp gnome-tweak-tool gpart curl \
 sudo apt install -y exa
 
 chsh -s $(which zsh)
-sudo chsh -s $(which zsh)
 
 ## Install fonts
 ${CURRENT_DIR}/font-installer.sh
@@ -38,16 +37,4 @@ password=root
 EOT
 
 sudo gpasswd -a www-data $USER
-sudo nginx -s reload
-
-if !([[ -r "/etc/rc.local" ]]); then
-  sudo tee "#!/bin/bash" >> /etc/rc.local
-  sudo chmod a+x /etc/rc.local
-fi
-
-sudo tee -a /etc/rc.local > /dev/null <<EOT
-xset led on
-sudo iptables -t nat -A OUTPUT -o lo -d 127.0.0.2 -p tcp --dport 80 -j DNAT  --to-destination 127.0.0.1:81
-sudo iptables -t nat -A OUTPUT -o lo -d 127.0.0.2 -p tcp --dport 443 -j DNAT  --to-destination 127.0.0.1:444
-
-EOT
+# sudo nginx -s reload
