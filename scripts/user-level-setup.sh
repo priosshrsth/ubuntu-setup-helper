@@ -30,5 +30,7 @@ source ~/.zshrc
 
 sudo tee -a ~/.profile > /dev/null <<EOT
 xset led on
+sudo iptables -t nat -A OUTPUT -o lo -d 127.0.0.2 -p tcp --dport 80 -j DNAT  --to-destination 127.0.0.1:81
+sudo iptables -t nat -A OUTPUT -o lo -d 127.0.0.2 -p tcp --dport 443 -j DNAT  --to-destination 127.0.0.1:444
 
 EOT

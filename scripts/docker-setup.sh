@@ -21,27 +21,37 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $USER
 
-docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/24 pagevamp
+sudo docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/24 pagevamp
 
 
 ## Setup docker compose
 
-temp=$( realpath "$0"  )
-CURRENT_DIR=$(dirname "$temp")
+# temp=$( realpath "$0"  )
+# CURRENT_DIR=$(dirname "$temp")
 
-if [ -d $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init -)"
-fi
+# if [ -d $HOME/.rbenv ]; then
+#   export PATH="$HOME/.rbenv/shims:$PATH"
+#   eval "$(rbenv init -)"
+# fi
 
-file_path="${CURRENT_DIR}/../ruby/parse_webpage.rb"
+# file_path="${CURRENT_DIR}/../ruby/parse_webpage.rb"
 
-COMPOSE_VERSION=$(ruby "$file_path" "https://github.com/docker/compose/tree/v2")
+# COMPOSE_VERSION=$(ruby "$file_path" "https://github.com/docker/compose/tree/v2")
 
-mkdir -p ~/.docker/cli-plugins/
+# mkdir -p ~/.docker/cli-plugins/
 
-curl -SL "https://github.com/docker/compose/releases/download/v${COMPOSE_VERSION}/docker-compose-linux-x86_64" -o ~/.docker/cli-plugins/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-chmod +x ~/.docker/cli-plugins/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-echo "$(docker compose version)"
+echo "$(docker-compose -v)"
+
+## Adding name servers to fix docker connection issue
+
+sudo tee -a /etc/resolv.conf > /dev/null <<EOT
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+EOT
