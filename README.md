@@ -12,21 +12,60 @@
 
 ## Disable sudo from asking password for you user
 
-    ```bash
-    sudo EDITOR=/usr/bin/nano visudo
-    ```
+  ```bash
+  sudo EDITOR=/usr/bin/nano visudo
+  ```
+  ### Add following content
 
-    #### Add following content
-
-    ```text
-    outside ALL=(ALL) :NOPASSWD=ALL
-    ```
+  ```text
+  outside ALL=(ALL) :NOPASSWD=ALL
+  ```
 
   ![visudo passwordless](./visudo.png?raw=true "Title")
 
 ## Reusing existing keys
 
   >Copy expisting id_rsa and public ket to ~/.ssh
+
+# One line setup
+
+ After completing the task above, you can use the scripts to setup your ubuntu. It is recommended to only use these scripts for fresh install.
+ This will install and configure followings for you:
+
+ - [x] mysql-client
+ - [x] oh-my-zsh and set zsh as default shell, along with some nice plugins and themes
+ - [x] docker with docker compose v2 
+ - [x] ruby version 3 with rbenv. Nokogiri and HTTParty gems are preinstalled (They are used to install nvm and docker)
+ - [x] nvm with latest node installed
+ - [x] Add all of the pre required softwares (defined in basic software installaion) and fonts to work with powerlevel10k theme.
+ - [x] zsh history completion
+ - [x] create docker network by default named pagevamp
+ - [x] create port proxy to redirect all request from
+
+      1. 127.0.0.2:80 -> 127.0.0.1:81
+      2. 127.0.0.2:443 -> 127.0.0.2:444
+
+      > Reason for this is to be able to use nginx from host machine with port 80 and from docker in port 81/444
+
+  - [x] Add www-data to your user group so that nginx can access your home folder
+
+ 1. ### Setup git
+
+    ```bash
+    sudo apt install git-core
+    ```
+ 2. ### Clone repo
+
+    ```bash
+    git clone git@github.com:priosshrsth/ubuntu-setup-helper.git
+    cd ubuntu-setup-helper
+    ```
+ 3. ### Run script
+
+    ```bash
+    ./setup.sh
+    ```
+
 ## Basic Software Installations
 
 1. ### Install yarn
@@ -274,7 +313,7 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
 1. ### Allow www-data to access local user directory
 
     ```bash
-    sudo gpasswd -a www-data username
+    sudo gpasswd -a www-data $USER
     sudo nginx -s reload
     ```
 

@@ -31,6 +31,9 @@ password=root
 
 EOT
 
+sudo gpasswd -a www-data $USER
+sudo nginx -s reload
+
 if !([[ -r "/etc/rc.local" ]]); then
   sudo tee "#!/bin/bash" >> /etc/rc.local
   sudo chmod a+x /etc/rc.local
