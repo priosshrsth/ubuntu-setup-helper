@@ -307,6 +307,14 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
     ```bash
     docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/24 pagevamp
     ```
+8. To enable docker BuildKit by default, set daemon configuration in /etc/docker/daemon.json feature to true and restart the daemon:
+
+
+    ```bash
+    { "features": { "buildkit": true } }
+   ```
+   
+   > I fthe file does not exist, we need to create it.
 
 ## Setup Nginx
 
