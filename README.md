@@ -321,7 +321,7 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
   `
     "proxies": {
     "default": {
-      "noProxy": "192.168.1.69,.example2.com,127.0.0.0/8"
+      "noProxy": "192.168.1.69,127.0.0.0/8"
     }
   }
   `
