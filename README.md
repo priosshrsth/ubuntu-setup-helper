@@ -316,6 +316,16 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
    
    > I fthe file does not exist, we need to create it.
 
+### When getting handshake error in docker
+  edit `~/.docker/config.json` file. Add following code assuming 192..168.1.69 is your local ip
+  `
+    "proxies": {
+    "default": {
+      "noProxy": "192.168.1.69,.example2.com,127.0.0.0/8"
+    }
+  }
+  `
+
 ## Setup Nginx
 
    > We have already installed nginx with our first apt install command.
