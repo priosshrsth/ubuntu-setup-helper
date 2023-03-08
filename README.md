@@ -366,7 +366,7 @@ Edit **`/etc/mysql/my.cnf`** and include these lines
 
 ```text
 [client]
-host=mysql7
+host=172.18.0.15
 user=root
 password=root
 ```
