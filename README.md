@@ -175,9 +175,9 @@
 
     ```bash
     git config --global color.ui true
-    git config --global user.name "priosshrsth"
-    git config --global user.email "shrsthprios@hotmail.com"
-    ssh-keygen -t rsa -b 4096 -C "shrsthprios@hotmail.com"
+    git config --global user.name "name"
+    git config --global user.email "email"
+    ssh-keygen -t ed25519 -C "email"
     ```
 
     The next step is to take the newly generated SSH key and add it to your Github account. You want to copy and paste the output of the following command and [paste it here](https://github.com/settings/ssh).
