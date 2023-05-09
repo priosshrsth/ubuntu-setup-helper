@@ -286,6 +286,7 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
 
     ```bash
     sudo usermod -aG docker $USER
+    newgrp docker
     ```
 
 6. ### Install docker-compose
