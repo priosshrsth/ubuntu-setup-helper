@@ -51,7 +51,7 @@
 
   - [x] Add www-data to your user group so that nginx can access your home folder
 
- 1. ### Setup git
+ 1. ### Setup git (No longer required)
 
     ```bash
     sudo apt install git-core
@@ -70,13 +70,6 @@
 
 ## Basic Software Installations
 
-1. ### Install yarn
-
-    ```bash
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    ```
-
 1. ### Install all required packages
 
      (Note:- Do not install phpstorm, RubyMine and Node from snap package. Use official website to download and install them)
@@ -86,12 +79,11 @@
      ```
 
       ```bash
-      sudo apt install --no-install-recommends yarn
-      sudo apt install zsh vlc gimp gnome-tweak-tool gpart curl \
+      sudo apt install zsh vlc gimp gpart curl \
       git-core zlib1g-dev build-essential libssl-dev libreadline-dev \
       libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev \
       libcurl4-openssl-dev software-properties-common libffi-dev \
-      fonts-powerline mysql-client libmysqlclient-dev zsh nginx \
+      fonts-powerline mysql-client libmysqlclient-dev \
       fonts-font-awesome exa python3-venv python3-pip
       ```
 
@@ -103,33 +95,6 @@
   ```nautilus --new-window```
   
     * **Win + D** => Toggle Desktop
-
-3. ### Install and use **arc** themes and icons (Optional)
-
-    ```
-    sudo add-apt-repository ppa:noobslab/themes
-    sudo add-apt-repository ppa:noobslab/icons
-    sudo apt-get update
-    sudo apt-get install arc-theme arc-icon
-    
-    
-    sudo add-apt-repository ppa:daniruiz/flat-remix
-
-    sudo apt update
-    sudo apt install flat-remix-gnome flat-remix-gtk flat-remix
-    ```
-
-4. ### Install Flat Remix Themes and Icons
-
-   (Note:- *Best Combinations with default Arc Theme and Flat-Remix-Light Icon 😌*)
-
-    ```bash
-    sudo add-apt-repository ppa:daniruiz/flat-remix
-    
-    sudo apt-get update
-    
-    sudo apt-get install flat-remix
-    ```
 
 ## Install and Use *Oh My ZSH*
 
@@ -156,7 +121,7 @@
    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
    ```
 
-4. ### Switch to [agnoster theme](https://gist.github.com/agnoster/3712874) for terminal. If the font doesn't work then select the powerline version of font in terminal
+4. ### Switch to powerlevel10k theme
 
   ```bash
   ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -239,48 +204,18 @@ chmod 700 ~/.ssh/id_rsa
 ssh-add
 ```
 
-## Setup NVM
+## Setup asdf
+
+https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/asdf
 
   ```bash
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
   ```
   
 ## Install Docker
 
 Goto: <https://docs.docker.com/engine/install/ubuntu/>
 
-1. ### Setup repository
-
-    ```bash
-    sudo apt-get install \
-        apt-transport-https \
-        ca-certificates \
-        curl \
-        gnupg \
-        lsb-release
-    ```
-
-2. ### Add Docker’s official GPG key
-
-    ```bash
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    ```
-
-3. ### Setup stable repository
-
-    ```bash
-    echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    ```
-
-4. ### Install docker
-
-    ```bash
-    sudo apt-get update
-
-    sudo apt-get install docker-ce docker-ce-cli containerd.io
-    ```
 
 5. ### Allow docker to be run withou sudo
 
