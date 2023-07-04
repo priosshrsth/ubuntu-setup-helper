@@ -79,7 +79,7 @@
      ```
 
       ```bash
-      sudo apt install zsh vlc gimp gpart curl \
+      sudo apt install zsh vlc gimp gpart curl libfuse2 \
       git-core zlib1g-dev build-essential libssl-dev libreadline-dev \
       libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev \
       libcurl4-openssl-dev software-properties-common libffi-dev \
@@ -224,33 +224,11 @@ Goto: <https://docs.docker.com/engine/install/ubuntu/>
     newgrp docker
     ```
 
-6. ### Install docker-compose
-
-    To install [docker-compose](https://docs.docker.com/compose/install) for lateest docker-compose installation
-
-    ```bash
-    mkdir -p ~/.docker/cli-plugins/
-
-    curl -SL https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-
-    chmod +x ~/.docker/cli-plugins/docker-compose
-
-    docker compose version
-    ```
-
 7. ### Create docker network
 
     ```bash
     docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/24 pagevamp
     ```
-8. To enable docker BuildKit by default, set daemon configuration in /etc/docker/daemon.json feature to true and restart the daemon:
-
-
-    ```bash
-    { "features": { "buildkit": true } }
-   ```
-   
-   > I fthe file does not exist, we need to create it.
 
 ### When getting handshake error in docker
   edit `~/.docker/config.json` file. Add following code assuming 192..168.1.69 is your local ip
