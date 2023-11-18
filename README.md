@@ -163,6 +163,7 @@
     Hi priosshrsth! You've successfully authenticated, but GitHub does not provide shell access.
     ```
 
+
 2. ### Set These port proxy
 
     ```bash
@@ -200,7 +201,8 @@
 Run these commands
 
 ```bash
-chmod 700 ~/.ssh/id_rsa
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
 ssh-add
 ```
 
