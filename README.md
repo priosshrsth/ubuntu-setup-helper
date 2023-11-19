@@ -79,8 +79,8 @@
      ```
 
       ```bash
-      sudo apt install zsh vlc gimp gpart curl libfuse2 \
-      git-core zlib1g-dev build-essential libssl-dev libreadline-dev \
+      sudo apt install zsh vlc gimp gpart curl libfuse2 nginx \
+      gstreamer1.0-libav zlib1g-dev build-essential libssl-dev libreadline-dev \
       libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev \
       libcurl4-openssl-dev software-properties-common libffi-dev \
       fonts-powerline mysql-client libmysqlclient-dev \
