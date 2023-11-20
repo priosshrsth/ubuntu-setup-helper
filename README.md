@@ -79,6 +79,7 @@
      ```
 
       ```bash
+      sudo apt install --no-install-recommends google-perftools
       sudo apt install zsh vlc gimp gpart curl libfuse2 nginx \
       gstreamer1.0-libav zlib1g-dev build-essential libssl-dev libreadline-dev \
       libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev \
